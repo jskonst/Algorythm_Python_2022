@@ -1,3 +1,6 @@
+# Algorithm
+
+Konstantinov Eugeny Sergeevich
 
 ```shell
 pip install pipenv

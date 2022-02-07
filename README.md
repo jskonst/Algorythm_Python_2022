@@ -1,5 +1,5 @@
-# Я здесь был
-и тут был
+# algoritmes
+Kostuchek Blad Dmitrievich
 ```shell
 pip install pipenv
 ```

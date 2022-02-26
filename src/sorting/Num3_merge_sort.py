@@ -27,25 +27,20 @@
 [1, 2, 2, 3, 3, 4]
 """
 
-def merge(A, B):
-    res = []
-    return res
-
-def merge_sort(A):
-    if len(A) == 1:
-        return A
-    l = A[0:len(A)//2]
-    r = A[len(A)//2:]
-    l = merge_sort(l)
-    r = merge_sort(r)
-    print("{:d} {:d}".format(r[0], l[-1]))
-    return merge(l, r)
-
-def task_merge_sort():
-    n = int(input())
-    arr = list(map(int, input().split(" ")))
-    res = merge_sort(arr)
-    print(" ".join(list(map(str,res))))
+n = int(input())
+res = []
+for i in range(n):
+    number, value = map(int, input().split())
+    res.append([number, value])
+for i in range(n-1):
+    for j in range(n-i-1):
+        if res[j][1] < res[j+1][1]:
+            res[j], res[j+1] = res[j+1], res[j]
+        if res[j][1] == res[j+1][1]:
+            if res[j][0] > res[j+1][0]:
+                res[j], res[j+1] = res[j+1], res[j]
+print()
+[print(i[0], i[1]) for i in res]
 
 if __name__ == "__main__":
     import doctest

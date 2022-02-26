@@ -3,8 +3,10 @@ def Merge_sort(A):
 		return A
 	L=A[0:(len(A)//2)]
 	R=A[len(A)//2:len(A)]
+	
 	L=Merge_sort(L)
 	R=Merge_sort(R)
+	
 	return Merge(L,R)
 
 
@@ -21,20 +23,24 @@ def Merge(A,B):
 			i+=1
 		else:
 			C[k]=B[j]
-			print(min(B[j][1],A[i][1]),max(B[j][1],A[i][1]),min(B[j][0],A[i][0]),max(B[j][0],A[i][0]))
 			j+=1
+			if j==1:
+				print(min(B[-1][1],A[-1][1]),max(B[0][1],A[0][1]),min(B[0][0],A[0][0]),max(B[-1][0],A[-1][0]))
 		k+=1
-		#print(A,B,C)
 	return C
 
+
+
+
 s=0
+String=''
 Start=[]
 n=int(input())
 M=[0]*n
 Start=(list(map(int,input().split())))
 for i in range(0,n):
-	#print(i)
 	M[i]=[Start[i],i+1]
-	#print(M)
 M=Merge_sort(M)
-print('--',M)
+for i in range(n):
+	String=str(M[i][0])+" "+String
+print(String)
